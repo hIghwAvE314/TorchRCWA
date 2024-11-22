@@ -4,7 +4,7 @@ RCWA implementation using PyTorch 2.5.1 for GPU acceleration. This repo is creat
 # Citation
 If you use this software in your research or projects, please cite the following paper:
 ```bibtex
-@article{Gao_2024,
+@article{...,
 doi = {10.1088/2040-8986/ad8c58},
 url = {https://dx.doi.org/10.1088/2040-8986/ad8c58},
 year = {2024},
