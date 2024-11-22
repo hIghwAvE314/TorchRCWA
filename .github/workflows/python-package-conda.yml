@@ -3,10 +3,8 @@ name: Python Package using Conda
 on: [push]
 
 jobs:
-  build-linux:
+  build-for-test:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 5
 
     steps:
     - uses: actions/checkout@v4
@@ -15,7 +13,6 @@ jobs:
       with:
           activate-environment: rcwa-torch
           environment-file: environment.yml
-          python-version: 3.10
           auto-activate-base: false
     - name: Install package
       run: |
