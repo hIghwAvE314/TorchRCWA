@@ -10,17 +10,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: '3.10'
-    - name: Add conda to system path
+        conda-version: "latest"
+        python-version: "3.10"
+
+    - name: Create Conda environment
       run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-    - name: Install dependencies
+        conda create -f environment.yml
+        conda activate rcwa-torch
+
+    - name: Install package
       run: |
-        conda env update --file environment.yml --name base
         pip install -e .  # install package in editable mode
     - name: Lint with flake8
       run: |
