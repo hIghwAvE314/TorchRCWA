@@ -13,7 +13,7 @@ jobs:
       with:
           activate-environment: rcwa-torch
           environment-file: environment.yml
-    - names: check essential package
+    - name: check essential package
       run: |
         conda info
         conda list
