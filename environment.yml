@@ -1,5 +1,7 @@
 ﻿name: rcwa-torch
 channels:
+  - pytorch
+  - nvidia
   - defaults
 dependencies:
   - python=3.10
