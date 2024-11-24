@@ -14,7 +14,7 @@ jobs:
           activate-environment: rcwa-torch
           environment-file: environment.yml
           auto-activate-base: false
-      run: |
+    - run: |
         conda info
         conda list
     # - name: Install package
