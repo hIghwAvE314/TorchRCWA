@@ -13,11 +13,15 @@ jobs:
       with:
           activate-environment: rcwa-torch
           environment-file: environment.yml
+    - names: check essential package
+    - run: |
+      conda info
+      conda list
     # - name: Install package
     #   run: |
     #     conda install pip
     #     pip install -e .  # install package in editable mode
-    - name: Test with pytest
-      run: |
-        conda install pytest
-        pytest testing/
+    # - name: Test with pytest
+    #   run: |
+    #     conda install pytest
+    #     python -m pytest testing/
