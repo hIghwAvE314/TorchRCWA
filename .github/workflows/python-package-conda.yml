@@ -14,9 +14,9 @@ jobs:
           activate-environment: rcwa-torch
           environment-file: environment.yml
     - names: check essential package
-    - run: |
-      conda info
-      conda list
+      run: |
+        conda info
+        conda list
     # - name: Install package
     #   run: |
     #     conda install pip
