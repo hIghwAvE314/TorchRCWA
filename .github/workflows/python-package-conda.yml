@@ -13,11 +13,10 @@ jobs:
       with:
           activate-environment: rcwa-torch
           environment-file: environment.yml
-    - name: check essential package
+          auto-activate-base: false
       run: |
-        conda init
-        conda activate rcwa-torch
-        conda list pytorch
+        conda info
+        conda list
     # - name: Install package
     #   run: |
     #     conda install pip
