@@ -5,6 +5,8 @@ def test_imports():
         'torch',
         'rcwa',
         'rcwa.geometry',
+        'rcwa.matrix',
+        'rcwa.params',
     ]
     for package in packages:
         try:
