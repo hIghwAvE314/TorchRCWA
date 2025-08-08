@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import pytest
-from rcwa.matrix import Matrix
+from rcwa.matrix import Matrix  # pylint: disable=import-error
 
 def test_matrix_creation_from_numpy():
     arr = np.array([[1, 2], [3, 4]], dtype=np.complex128)
@@ -65,9 +65,9 @@ def test_inv():
     expected = torch.tensor([[-2, 1], [1.5, -0.5]], dtype=torch.complex128, device=a.device)
     assert torch.allclose(inv_a, expected)
 
-def test_numpy():
+def test_view():
     a = Matrix([[1, 2], [3, 4]])
-    arr = a.detach().cpu().numpy()
+    arr = a.view()
     assert isinstance(arr, np.ndarray)
     assert np.allclose(arr, np.array([[1, 2], [3, 4]], dtype=np.complex128))
 

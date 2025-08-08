@@ -25,34 +25,10 @@ class Matrix(torch.Tensor):
         obj = torch.Tensor._make_subclass(cls, data, require_grad=False)
         return obj
 
-    def __matmul__(self, other):
-        return Matrix(torch.matmul(self, other))
-
-    def __add__(self, other):
-        return Matrix(torch.add(self, other))
-
-    def __sub__(self, other):
-        return Matrix(torch.sub(self, other))
-
-    def __mul__(self, other):
-        """
-        Point-wise (Hadamard) multiplication if other is a matrix/tensor of the same shape.
-        Scalar multiplication if other is a number (int, float, complex).
-        """
-        if isinstance(other, (int, float, complex)):
-            return Matrix(super().__mul__(other))
-        return Matrix(torch.mul(self, other))
-
-    def __rmul__(self, other):
-        """
-        Scalar multiplication if other is a number (int, float, complex).
-        Point-wise (Hadamard) multiplication if other is a matrix/tensor of the same shape.
-        """
-        if isinstance(other, (int, float, complex)):
-            return Matrix(super().__mul__(other))
-        return Matrix(torch.mul(other, self))
-
-    def inv(self):
+    def inv(self) -> 'Matrix':
         """Return the matrix inverse."""
         return Matrix(torch.inverse(self))
 
+    def view(self) -> np.ndarray:
+        """Return a view (numpy array) of the matrix."""
+        return self.detach().cpu().numpy()  # pylint: disable=not-callable
